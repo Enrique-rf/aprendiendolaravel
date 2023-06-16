@@ -8,6 +8,16 @@ class UserController extends Controller
 {
     public function index()
     {
-        return 'Usuarios';
+        return 'usuarios'; 
     }
-}
+
+    public function create()
+    {
+        return 'Crear nuevo usuario';
+    }
+
+    public function show()
+    {
+        return "Mostrando Detalle del usuario: {$id}";
+    }
+};
