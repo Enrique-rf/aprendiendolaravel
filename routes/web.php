@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeUserController;
  
 Route::get('/',function(){
     return'Hola mi querido mundito'; 
@@ -23,7 +24,7 @@ Route::get('/usuario/{id}', [UserController::class, "show"])
     ->where('id', '\d+');
 
 
-Route::get('/saludo/{name}/{nickname}',function($name,$nickname=null){
+/*Route::get('/saludo/{name}/{nickname}',function($name,$nickname=null){
     $name=ucfirst($name);
 
     if($nickname){
@@ -32,4 +33,5 @@ Route::get('/saludo/{name}/{nickname}',function($name,$nickname=null){
         return "Bienvenido {$name}";
     }
     
-});
+});*/
+Route::get('/saludo/{name}/{nickname}', [WelcomeUserController::class, 'greet']);
