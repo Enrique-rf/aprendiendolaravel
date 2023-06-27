@@ -14,7 +14,7 @@ Route::get('/usuarios', [UserController::class,"index"]);
 //Route::get('/usuarios/nuevo', function(){
 //    return 'Crear nuevo usuario';
 //});
-Route::get('/usuarios/nuevo',[UserController::class,"create"]);
+Route::get('/usuarios/nuevo/{newUser}',[UserController::class,"create"]);
 
 
 //Route::get('/usuarios/{id}',function($id){

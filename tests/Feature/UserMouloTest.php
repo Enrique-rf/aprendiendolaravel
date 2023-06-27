@@ -10,12 +10,24 @@ use Tests\TestCase;
 class UserMouloTest extends TestCase
 {
     /** @test */ 
-    function it_loads_the_users_list_page()
+    function it_shows_the_users_list()
     {
         $this->get('/usuarios')
             ->assertStatus(200)
-            ->assertSee('usuarios');
+            ->assertSee('Listado de usuarios')
+            ->assertSee('Luis')
+            ->assertSee('Recalde');
     }
+
+     /** @test */ 
+     function it_shows_a_default_message_if_the_users_list_is_empty()
+     {
+         $this->get('/usuarios?empty')
+             ->assertStatus(200)
+             ->assertSee('No hay usuarios registrados..');
+             //->assertSee('Luis')
+            // ->assertSee('Recalde');
+     }
 
 
  /* @test */ 
@@ -31,7 +43,7 @@ function it_loads_the_users_details_page()
     {
       $this->get('/usuarios/nuevo') 
         ->assertStatus(200)
-        ->assertSee('Crear nuevo usuario');
+        ->assertSee('No hay nuevo usuario');
    }
 
  /* @test */
@@ -44,4 +56,4 @@ function it_loads_the_users_details_page()
 
 
 
-}
+};
