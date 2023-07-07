@@ -14,13 +14,14 @@ Route::get('/usuarios', [UserController::class,"index"]);
 //Route::get('/usuarios/nuevo', function(){
 //    return 'Crear nuevo usuario';
 //});
-Route::get('/usuarios/nuevo/{newUser}',[UserController::class,"create"]);
+Route::get('/usuarios/nuevo/{newUser?}',[UserController::class,"create"]);
+//Route::get('/usuarios/nuevo/{newUser?}',[UserController::class,"create"])->defaults('newUser', 'No hay usuario nuevo');
 
 
 //Route::get('/usuarios/{id}',function($id){
  //  return "Mostrando Detalle del usuario: {$id} ";
 //})->where('id','[0-9]+');
-Route::get('/usuario/{id}', [UserController::class, "show"])
+Route::get('/usuarios/{id}', [UserController::class, "show"])
     ->where('id', '\d+');
 
 

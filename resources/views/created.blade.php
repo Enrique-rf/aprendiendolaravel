@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create</title>
-</head>
-<body>
-    <h1>Usuarios nuevos</h1>
+@extends('layout')
+@section('content')
+
+    <h1 style="margin-top:50px;" >Usuarios nuevos</h1>
     
     @if($newUser)
         <li>El nuevo usuario es {{ $newUser }}</li>
     @else
-        <li>No hay usuario.</li>
+        <li>No hay ususarios nuevos..</li>
     @endif
+
+@endsection
+
+@section('sidebar')
+@parent
+@endsection
+
     
-</body>
-</html>
-            

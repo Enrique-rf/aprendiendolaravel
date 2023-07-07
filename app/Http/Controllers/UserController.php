@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
   /*  public function index()
@@ -49,18 +50,19 @@ class UserController extends Controller
         }
     }*/
 
+    public function create(Request $request, $newUser = null)
+    {
+        $newUser = ucfirst($newUser);
     
-public function create($newUser)
-{
-   $newUser = ucfirst($newUser);
-
-    if ($newUser) {
-        return view('created', compact('newUser'));
-    } else {
-        return "No hay usuario nuevo";
-        
+        if ($newUser) {
+            return view('created', compact('newUser'));
+        } else {
+            $newUser = null;
+            return view('created', compact('newUser')) ;
+        }
+    } 
+    public function show($id)
+    {
+        return view('usershow', compact('id'));
     }
-}
-    
-
 }
